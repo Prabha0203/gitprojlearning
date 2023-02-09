@@ -1,0 +1,22 @@
+name: PipelineWorkflow
+
+on:
+ push:
+  branches:
+   - main
+ pull_request:
+  branches:
+   - main
+
+
+jobs:
+  build:
+    name: Azure pipeline
+    runs-on: ubantu-latest
+    steps:
+     - name: Azure pipeline Action
+       uses: Azure/pipelines@v1
+       with:
+        azure-devops-project-url: https://dev.azure.com/prabhaknp/NETCOREPROJECT
+        azure-pipeline-name: 'Prabha0203.terraformtesting'
+        azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
